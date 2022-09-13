@@ -1,3 +1,3 @@
-release: flask --app movie.py db upgrade
+release: flask --app main.py db upgrade
 web: gunicorn movie:app
 
