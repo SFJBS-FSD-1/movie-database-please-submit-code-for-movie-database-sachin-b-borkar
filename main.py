@@ -5,6 +5,7 @@ from flask_restful import Api,Resource
 from http import HTTPStatus
 from flask_migrate import Migrate
 
+
 class Config():
     SQLALCHEMY_DATABASE_URI = "postgresql+psycopg2://root:1234@localhost/moviedatabase2"
 
