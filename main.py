@@ -17,7 +17,7 @@ class ProductionConfig(Config):
         uri = uri.replace("postgres://","postgresql://",1)
     SQLALCHEMY_DATABASE_URI = uri
 
-env = os.environ.get("ENV","Production" )
+env = os.environ.get("ENV","Devlopment" )
 
 if env == "Production":
     config_str = ProductionConfig
@@ -34,7 +34,7 @@ app.config.from_object(config_str)
 
 db = SQLAlchemy(app)
 
-migrate = Migrate (app,db)
+migrate = Migrate(app,db)
 
 class Movie(db.Model):
     id = db.Column(db.Integer, primary_key=True)  # this is the primary key
