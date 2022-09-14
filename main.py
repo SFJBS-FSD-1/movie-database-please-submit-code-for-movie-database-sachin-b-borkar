@@ -3,7 +3,7 @@ from flask import Flask,request,jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_restful import Api,Resource
 from http import HTTPStatus
-from flask_migrate import  Migrate
+from flask_migrate import Migrate
 
 class Config():
     SQLALCHEMY_DATABASE_URI = "postgresql+psycopg2://root:1234@localhost/moviedatabase2"
@@ -17,7 +17,7 @@ class ProductionConfig(Config):
         uri = uri.replace("postgres://","postgresql://",1)
     SQLALCHEMY_DATABASE_URI = uri
 
-env = os.environ.get("ENV","Development" )
+env = os.environ.get("ENV","Production" )
 
 if env == "Production":
     config_str = ProductionConfig
