@@ -1,5 +1,5 @@
 import os
-from flask import Flask,request,jsonify
+from flask import Flask,request,jsonify,render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_restful import Api,Resource
 from http import HTTPStatus
@@ -36,6 +36,9 @@ app.config.from_object(config_str)
 db = SQLAlchemy(app)
 
 migrate = Migrate(app,db)
+@app.route("/")
+def homepage():
+    return render_template("home.html")
 
 class Movie(db.Model):
     id = db.Column(db.Integer, primary_key=True)  # this is the primary key
